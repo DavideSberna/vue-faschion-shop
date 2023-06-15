@@ -1,14 +1,13 @@
 <template>
-  ciao
+  <h1>Home page</h1>
 </template>
 
 <script>
 export default {
     name: 'HomePage',
+    
 
 }
 </script>
 
-<style>
-
-</style>
+<style lang="scss" scoped></style>
