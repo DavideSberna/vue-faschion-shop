@@ -10,10 +10,16 @@
       <ul class="navbar-nav">
         <li class="nav-item" v-for="(link, index) in menuLink" :key="index">
             <router-link :to="{ name: link.routeName }" class="nav-link" active-class="active">
-                <p class="p-0 m-0">{{ link.label }}</p>
+                <p class="m-0">{{ link.label }}</p>
             </router-link>
         </li>
       </ul>
+      <div class="ms-auto">
+          <a href="http://localhost:8000" class="nav-link">
+              <p class="m-0">Area Riservata</p>
+          </a>
+      </div>
+      
     </div>
   </div>
 </nav>
