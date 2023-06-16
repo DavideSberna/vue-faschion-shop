@@ -1,22 +1,28 @@
 <template>
     <div>
         <div class="container">
-          <h1>All our Products</h1>
-          <div class="row mb-3">
-            <div class="col" v-for="(product, index) in products" :key="product.id">
-
+          <h1 class="fw-light mt-2 mb-3">All our Products</h1>
+          <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" v-for="(product, index) in products" :key="product.id">
               <div class="card h-100">
-                <img :src="product.cover_image" class="card-img-top" :alt="product.title">
-                <div class="card-body">
+                <img :src="product.cover_image" class="card-img-top img-fluid" :alt="product.name">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
                   <p class="card-title text-uppercase fw-bolder">{{ product.name }}</p>
                   <div class="fw-lighter">
-                  <p>Brand: <span class="fw-normal">{{ product.brand.name }}</span></p>
-                  <p>Price: <span class="fw-normal">€ {{ product.price }}</span></p>
-                  </div>
-                 <p><router-link :to="{ name: 'product-show', params: { slug: product.slug } }" class="btn btn-primary bottom-right position-absolute">Details</router-link></p>
-                </div>
+                    <p class="mb-0 fst-italic">Brand: <span class="fw-normal">{{ product.brand.name }}</span></p>
+                    <p class="mb-0 fst-italic">Price: <span class="fw-normal">€ {{ product.price }}</span></p>
+                    </div>
+                    </div>
+                    <div class="d-flex align-items-end flex-column flow-end">
+                        <router-link :to="{ name: 'product-show', params: { slug: product.slug } }" class="button-89" role="button">Details</router-link>
+                    </div>
+                    </div>
               </div>
             </div>
+
+
+
 
           </div>
           <nav aria-label="Page navigation example">
@@ -44,8 +50,8 @@ export default {
         return{
             products: [],
             store,
-            apiURL: 'http://127.0.0.1:8001/api',
-            imgBasePath: 'http://127.0.0.1:8001/storage/',
+            apiUrl: 'http://127.0.0.1:8000/api',
+            // imgBasePath: 'http://127.0.0.1:8000/storage/',
             currentPage: 1,
             lastPage: null,
 
@@ -53,7 +59,8 @@ export default {
     },
     methods: {
         getData(numPage) {
-            axios.get(`${this.apiURL}/products`, {
+            // axios.get(`${this.apiUrl}/products`, {
+                axios.get(`${store.apiUrl}/products`, {
                 params: {
                     'page': numPage
                 }
@@ -78,7 +85,7 @@ export default {
 
 .card-img-top {
 width: 100%;
-    height: 15vw;
+    height: 250px;
     object-fit: cover;
 }
 
@@ -87,4 +94,50 @@ width: 100%;
             right: 5px;
         }
 
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+
+.page-link {
+    color: black;
+}
+
+.page-link.active {
+    background-color: black;
+    border-color: black;
+    color: white;
+}
+
 </style>
+
