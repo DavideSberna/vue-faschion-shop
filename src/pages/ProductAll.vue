@@ -15,7 +15,7 @@
                     </div>
                     </div>
                     <div class="d-flex align-items-end flex-column flow-end">
-                        <router-link :to="{ name: 'product-show', params: { slug: product.slug } }" class="button-89" role="button">Details</router-link>
+                        <router-link :to="{ name: 'product-show', params: { slug: product.slug } }" class="button-style" role="button">Details</router-link>
                     </div>
                     </div>
               </div>
@@ -94,7 +94,7 @@ width: 100%;
             right: 5px;
         }
 
-.button-89 {
+.button-style {
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
   --color: #373B44;
@@ -117,14 +117,14 @@ width: 100%;
   touch-action: manipulation;
 }
 
-.button-89:hover,
-.button-89:focus-visible{
+.button-style:hover,
+.button-style:focus-visible{
   --_p: 0px;
   outline-color: var(--color);
   outline-offset: .05em;
 }
 
-.button-89:active {
+.button-style:active {
   background: var(--color);
   color: #fff;
 }
