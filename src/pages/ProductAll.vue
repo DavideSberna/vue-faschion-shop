@@ -1,7 +1,8 @@
 <template>
-    <div>
+
         <div class="container">
-          <h1 class="fw-light mt-2 mb-3">All our Products</h1>
+          <h1 class="fw-light mb-3">All our Products</h1>
+          <hr>
           <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" v-for="(product, index) in products" :key="product.id">
               <div class="card h-100">
@@ -20,12 +21,13 @@
                     </div>
               </div>
             </div>
+            <hr>
 
 
 
 
           </div>
-          <nav aria-label="Page navigation example">
+          <nav aria-label="Page navigation example my-3">
               <ul class="pagination">
                   <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === 1 }"
                   @click="getData(currentPage - 1)">Previous</button></li>
@@ -36,8 +38,9 @@
                   @click="getData(currentPage + 1)">Next</button></li>
               </ul>
             </nav>
+            <hr>
         </div>
-      </div>
+
 </template>
 
 <script>
