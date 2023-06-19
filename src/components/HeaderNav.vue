@@ -1,10 +1,6 @@
 <template>
 
-<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg bg-body-secondary ">
-=======
-<nav class="navbar navbar-expand-lg bg-body-tertiary py-0">
->>>>>>> 037c4061e9707b248cae685cd526023ae57b8904
   <div class="container-fluid">
     <a class="navbar-brand p-0" href="#">
         <img class="image-logo" src="../../public/img/logo.png" alt="">
@@ -30,11 +26,7 @@
     </div>
   </div>
 </nav>
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 037c4061e9707b248cae685cd526023ae57b8904
 </template>
 
 <script>
@@ -72,9 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 
-<<<<<<< HEAD
-</style>
-=======
 .image-logo {
     width: 200px;
     height: auto;
@@ -93,4 +82,3 @@ export default {
 }
 </style>
 
->>>>>>> 037c4061e9707b248cae685cd526023ae57b8904

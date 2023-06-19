@@ -11,13 +11,10 @@
                     <h1 class="display-5 fw-bold">{{ product.name }}</h1>
                     <p class="fs-4">{{ product.description }}
                     </p>
-                    <button class="btn btn-primary btn-lg" type="button"><i class="fa-solid fa-cart-shopping"></i>
-                        <span> Add to Cart</span>
-                    </button>
-                </div>
-                <router-link :to="{ name: 'product-show', params: { slug: 'blotted-lip' } }" class="btn btn-primary">Altro
+                    <router-link :to="{ name: 'product-show', params: { slug: 'blotted-lip' } }" class="btn btn-primary">Altro
                     Prodotto
                 </router-link>
+                </div>
 
             </div>
         </div>
