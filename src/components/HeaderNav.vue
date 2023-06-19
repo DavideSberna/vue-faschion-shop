@@ -1,6 +1,6 @@
 <template>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-secondary ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Logo image</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </nav>
-      
+    
 </template>
 
 <script>
@@ -59,4 +59,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>

@@ -1,10 +1,10 @@
 <template>
-    <!-- <LoaderApp v-if="loading" /> -->
+    <Loader v-if="loading" />
     <section class="container" v-if="!loading">
         <div class="mb-4">
             <div class="container-fluid d-flex justify-content-between">
                 <div class="p-4 w-25">
-                    <img :src="getImage" :alt="product.name" class="image-fit" />
+                    <img :src="getImagePath" :alt="product.name" class="image-fit" />
                 </div>
 
                 <div class="p-4 w-75">
@@ -15,9 +15,9 @@
                         <span> Add to Cart</span>
                     </button>
                 </div>
-                <!-- <router-link :to="{ name: 'product-show', params: { slug: 'blotted-lip'  } }" class="btn btn-primary">Altro
-                    prodotto
-                </router-link> -->
+                <router-link :to="{ name: 'product-show', params: { slug: 'blotted-lip' } }" class="btn btn-primary">Altro
+                    Prodotto
+                </router-link>
 
             </div>
         </div>
@@ -34,7 +34,7 @@ import { store } from '../store';
 import Loader from '../components/Loader.vue';
 import axios from 'axios'
 export default {
-    name: 'showProduct',
+    name: 'shorProduct',
     components: {
         Loader
     },
@@ -50,21 +50,35 @@ export default {
             axios.get(`${store.apiUrl}/products/${this.$route.params.slug}`).then((res) => {
                 console.log(res.data.results);
                 this.product = res.data.results;
+            }).catch((error) => {
+                console.log(error);
+                console.log(error.response.data);
+                this.$router.push({ name: 'not-found', query: { e: error.response.data.message } });
+            }).finally(() => {
+                this.loading = false;
             });
         }
     },
     computed: {
-        getImage() {
-            return store.LinkImage + this.product.cover_image;
+        getImagePath() {
+            return store.imgBasePath + this.product.cover_image;
         }
     },
     mounted() {
+        // console.log(this.$router);
+        // console.log(this.$route);
+
         this.getProduct();
     },
     created() {
-        this.getProduct();
+        this.$watch(
+            () => this.$route.params,
+            (toParams, previousParams) => {
+                // react to route changes...
+                this.getProduct();
+            }
+        )
     },
-    
 }
 </script>
 

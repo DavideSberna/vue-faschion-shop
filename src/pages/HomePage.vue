@@ -12,7 +12,7 @@
               <div class="carousel-inner">
                   <!-- <Transition :name="direction"> -->
                       <div class="carousel-item active" :key="products[activeSlide]">
-                          <img :src="store.imgBasePath + products[activeSlide]" class="d-block" :alt="products[activeSlide]" />
+                          <img :src="store.LinkImage + products[activeSlide]" class="d-block" :alt="products[activeSlide]" />
                           <div class="carousel-caption d-none d-md-block">
                               <h5>{{ products[activeSlide] }}</h5>
                           </div>
