@@ -1,8 +1,20 @@
 <template>
 
+
         <div class="container">
           <h1 class="fw-light mb-3">All our Products</h1>
           <hr>
+
+    <div>
+      <Loader v-if="loading" />
+        <div class="container" v-if="!loading">
+          <select class="form-select mt-5 mb-4" name="category" id="category" v-model="selectedCategory" @change="getData(1)">
+                <option value="">All</option>
+                <option :value="category.id" v-for="(category, index) in categories" :key="category.id">{{ category.name }}
+                </option>
+          </select>
+          <h1 class="fw-light mt-2 mb-4">All our Products</h1>
+
           <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" v-for="(product, index) in products" :key="product.id">
               <div class="card h-100">
@@ -44,17 +56,24 @@
 </template>
 
 <script>
-
+import Loader from '../components/Loader.vue';
 import axios from 'axios';
 import { store } from '../store';
 export default {
     name: 'ProductAll',
+    components: {
+      Loader,
+
+    },
     data(){
         return{
             products: [],
+            categories: [],
+            loading: true,
             store,
             apiUrl: 'http://127.0.0.1:8000/api',
             // imgBasePath: 'http://127.0.0.1:8000/storage/',
+            selectedCategory: '',
             currentPage: 1,
             lastPage: null,
 
@@ -63,16 +82,24 @@ export default {
     methods: {
         getData(numPage) {
             // axios.get(`${this.apiUrl}/products`, {
-                axios.get(`${store.apiUrl}/products`, {
-                params: {
-                    'page': numPage
+              let params = {
+                'page': numPage
                 }
-            }).then((res) => {
-                // console.log(res)
-                this.products = res.data.results.data
-                this.currentPage = res.data.results.current_page;
-                this.lastPage = res.data.results.last_page;
+                if (this.selectedCategory) {
+                    params.category_id = this.selectedCategory
+                }
+                axios.get(`${store.apiUrl}/products`, { params
+                }).then((res) => {
 
+                  console.log(res.data.results.categories)
+                  this.products = res.data.results.products.data
+                  this.currentPage = res.data.results.products.current_page;
+                  this.lastPage = res.data.results.products.last_page;
+                  this.categories = res.data.results.categories;
+            }).catch((error) => {
+                console.log(error);
+            }).finally(() => {
+                this.loading = false;
             })
         }
     },
