@@ -1,12 +1,36 @@
 <template>
   <!-- <Loader/> -->
   <h1>Home page</h1>
-  <div class="row mt-5 mb-3">
-    <div class="col-4" v-for="product in products" :key="product.id">
-      <div class="card">
-        <h4>{{ product.name }}</h4>
+  <div class="row justify-content-center my-4">
+      <div class="col-12 col-lg-8">
+          <div id="productCarousel" class="carousel carousel-dark slide">
+              <div class="carousel-indicators">
+                  <button type="button" v-for="(product, index) in products" :key="product.id"
+                      data-bs-target="#productCarousel" :class="{ 'active': activeSlide === index }">
+                  </button>
+              </div>
+              <div class="carousel-inner">
+                  <!-- <Transition :name="direction"> -->
+                      <div class="carousel-item active" :key="products[activeSlide]">
+                          <img :src="store.imgBasePath + products[activeSlide]" class="d-block" :alt="products[activeSlide]" />
+                          <div class="carousel-caption d-none d-md-block">
+                              <h5>{{ products[activeSlide] }}</h5>
+                          </div>
+                      </div>
+                  <!-- </Transition> -->
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#productCarouselCaptions"
+                  data-bs-slide="prev" @click="prev()">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="##productCarouselCaptions"
+                  data-bs-slide="next" @click="next()">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+              </button>
+          </div>
       </div>
-    </div>
   </div>
   <div class="row mt-5">
     <div class="col-4" v-for="category in categories" :key="category.id">
@@ -31,7 +55,8 @@ export default {
             store,
             loaders: true,
             products: [],
-            categories: []
+            categories: [],
+            activeSlide: 0
         }
     },
     methods: {
@@ -42,7 +67,14 @@ export default {
             this.products = res.data.results.products;
             this.categories = res.data.results.categories;
           });
-           
+        },
+        next() {
+            // this.direction = 'next';
+            this.activeSlide = this.activeSlide < this.products.length - 1 ? this.activeSlide + 1 : 0;
+        },
+        prev() {
+            // this.direction = 'prev';
+            this.activeSlide = this.activeSlide > 0 ? this.activeSlide - 1 : this.products.length - 1;
         }
     },
     mounted() {
