@@ -33,6 +33,7 @@
                     </div>
               </div>
             </div>
+            </div>
             <hr>
 
 
@@ -52,6 +53,7 @@
             </nav>
             <hr>
         </div>
+      </div>
 
 </template>
 
