@@ -1,6 +1,6 @@
 <template>
 
-<nav class="navbar navbar-expand-lg bg-body-secondary ">
+<nav class="navbar navbar-expand-lg bg-body-secondary py-0">
   <div class="container-fluid">
     <a class="navbar-brand p-0" href="#">
         <img class="image-logo" src="../../public/img/logo.png" alt="">
@@ -26,7 +26,7 @@
     </div>
   </div>
 </nav>
-    
+
 </template>
 
 <script>

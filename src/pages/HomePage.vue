@@ -1,6 +1,6 @@
 <template>
   <!-- <Loader/> -->
-  <h1>Home page</h1>
+  <h1 class="fw-light mt-2">Home page</h1>
   <div class="row justify-content-center my-4">
       <div class="col-12 col-lg-8">
           <div id="productCarousel" class="carousel carousel-dark slide">
@@ -80,8 +80,8 @@ export default {
     mounted() {
         this.getData();
     }
-    
-    
+
+
 
 }
 </script>
