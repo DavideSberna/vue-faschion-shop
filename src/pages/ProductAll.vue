@@ -1,22 +1,18 @@
 <template>
-
-
-        <div class="container">
-          <h1 class="fw-light mb-3">All our Products</h1>
-          <hr>
-
+  <div class="container">
     <div>
       <Loader v-if="loading" />
         <div class="container" v-if="!loading">
-          <select class="form-select mt-5 mb-4" name="category" id="category" v-model="selectedCategory" @change="getData(1)">
-                <option value="">All</option>
-                <option :value="category.id" v-for="(category, index) in categories" :key="category.id">{{ category.name }}
-                </option>
-          </select>
-          <h1 class="fw-light mt-2 mb-4">All our Products</h1>
-
-          <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mb-4" v-for="(product, index) in products" :key="product.id">
+          <h1 class="fw-light mt-2">All our Products</h1>
+          <hr>
+          <select class="form-select" name="category" id="category" v-model="selectedCategory" @change="getData(1)">
+                  <option value="">All</option>
+                  <option :value="category.id" v-for="(category, index) in categories" :key="category.id">{{ category.name }}
+                  </option>
+            </select>
+            <hr>
+          <div class="row row-gap-4">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" v-for="(product, index) in products" :key="product.id">
               <div class="card h-100">
                 <img :src="product.cover_image" class="card-img-top img-fluid" :alt="product.name">
                 <div class="card-body d-flex flex-column justify-content-between">
@@ -50,10 +46,11 @@
                   <li class="page-item"><button :class="{ 'page-link': true, 'disabled': currentPage === lastPage }"
                   @click="getData(currentPage + 1)">Next</button></li>
               </ul>
+
             </nav>
-            <hr>
+
         </div>
-      </div>
+  </div>
 
 </template>
 
