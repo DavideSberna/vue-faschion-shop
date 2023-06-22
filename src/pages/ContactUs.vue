@@ -41,7 +41,7 @@
         </div>
 
          <div class="ag-courses_item">
-          <a href="#" class="ag-courses-item_link">
+          <a href="https://github.com/alessiologozzo" class="ag-courses-item_link">
             <div class="ag-courses-item_bg"></div>
 
             <div class="ag-courses-item_title">
@@ -75,7 +75,7 @@
           </a>
         </div>
          <div class="ag-courses_item">
-          <a href="#" class="ag-courses-item_link">
+          <a href="https://github.com/taddeoneri" class="ag-courses-item_link">
             <div class="ag-courses-item_bg"></div>
 
             <div class="ag-courses-item_title">
@@ -103,7 +103,7 @@
             <div class="ag-courses-item_date-box">
               Role:
               <span class="ag-courses-item_date">
-                Web Dev. & Design
+                Designer
               </span>
             </div>
           </a>
@@ -231,7 +231,7 @@ body {
   background-color: #3ecd5e;
 }
 .ag-courses_item:nth-child(3n) .ag-courses-item_bg {
-  background-color: #e44002;
+  background-color: #0059ff;
 }
 .ag-courses_item:nth-child(4n) .ag-courses-item_bg {
   background-color: #952aff;
@@ -240,7 +240,7 @@ body {
   background-color: #ff0000;
 }
 .ag-courses_item:nth-child(6n) .ag-courses-item_bg {
-  background-color: #4c49ea;
+  background-color: #c8ba00;
 }
 
 

@@ -27,7 +27,7 @@ export default {
 
 .main-content {
   width: 100%;
-  height: calc(100vh - 84px);
+  height: calc(100vh - 86px);
   overflow-y: auto;
   background-image: url(https://static.vecteezy.com/ti/vettori-gratis/p1/2379059-sfondo-onda-bianco-elegante-vettoriale.jpg);
   background-size: cover;

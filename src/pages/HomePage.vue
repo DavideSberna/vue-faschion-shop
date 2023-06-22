@@ -1,6 +1,8 @@
 <template>
+    <div class="container">
   <!-- <Loader/> -->
-  <h1 class="fw-light mt-2">Home page</h1>
+  <h1 class="fw-light mt-2">Welcome to BoolBeauty</h1>
+    <hr>
   <div class="row justify-content-center my-4">
       <div class="col-12 col-lg-8">
           <div id="productCarousel" class="carousel carousel-dark slide">
@@ -12,9 +14,9 @@
               <div class="carousel-inner">
                   <!-- <Transition :name="direction"> -->
                       <div class="carousel-item active" :key="products[activeSlide]">
-                          <img :src="store.LinkImage + products[activeSlide]" class="d-block" :alt="products[activeSlide]" />
-                          <div class="carousel-caption d-none d-md-block">
-                              <h5>{{ products[activeSlide] }}</h5>
+                          <img :src="products[activeSlide]?.cover_image" class="d-block" :alt="products[activeSlide]" />
+                          <div class="carousel-caption d-md-block">
+                              <h5 class="bg-white p-2" style="--bs-bg-opacity: .5;">{{ products[activeSlide]?.name }}</h5>
                           </div>
                       </div>
                   <!-- </Transition> -->
@@ -39,6 +41,7 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
@@ -56,7 +59,7 @@ export default {
             loaders: true,
             products: [],
             categories: [],
-            activeSlide: 0
+            activeSlide: 0,
         }
     },
     methods: {
@@ -86,4 +89,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.d-block {
+    height: 500px;
+    width: auto;
+    margin: 0 auto;
+}
+
+</style>

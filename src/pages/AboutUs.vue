@@ -3,8 +3,7 @@
 <div class="container">
     <h1 class="fw-light mt-2">About Us</h1>
 <hr>
-<h3 class="m-5">We are just a bunch of fellas who, fresh out of a Boolean web developer course, have decided to try their hand at their first real job, the field of fashion and makeup...
-    With us you'll find everything you need to shine in the crowd, especially if you are in the company of friends, you know ... the cheerleader effect</h3>
+<h3 class="m-5">We are just a bunch of fellas who, fresh out of a Boolean web developer course, have decided to try their hand at their first real job, the world of fashion and makeup... With us you'll find everything you need to shine in the crowd, especially if you are in the company of friends and avoid the cheerleader effect.</h3>
     </div>
     <br>
     <div class="text-center">
