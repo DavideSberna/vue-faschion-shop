@@ -61,7 +61,7 @@ import { store } from '../store';
 import Loader from '../components/Loader.vue';
 import axios from 'axios'
 export default {
-    name: 'shorProduct',
+    name: 'showProduct',
     components: {
         Loader
     },

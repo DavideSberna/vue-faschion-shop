@@ -2,13 +2,15 @@
 
 <nav class="navbar navbar-expand-lg bg-body-secondary py-0">
   <div class="container-fluid">
-    <a class="navbar-brand p-0" href="#">
+    <a class="navbar-brand pt-2" href="http://localhost:5174/">
         <img class="image-logo" src="../../public/img/logo.png" alt="">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+    aria-expanded="false" aria-label="Toggle navigation"  @click="toggleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" :class="{ 'show': isNavbarOpen }" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item" v-for="(link, index) in menuLink" :key="index">
             <router-link :to="{ name: link.routeName }" class="nav-link px-3" exact-active-class="active">
@@ -42,21 +44,27 @@ export default {
                     routeName: 'home'
                 },
                 {
+                    label: 'All Product',
+                    routeName: 'products'
+                },
+                {
+
                     label: 'About',
                     routeName: 'about'
                 },
                 {
                     label: 'Contact',
                     routeName: 'contact'
-                },
-                {
-                    label: 'All Product',
-                    routeName: 'products'
                 }
-            ]
-
+            ],
+            isNavbarOpen:false
         };
     },
+    methods: {
+        toggleNavbar(){
+            this.isNavbarOpen = !this.isNavbarOpen;
+        }
+    }
 
 
 }
@@ -70,8 +78,8 @@ export default {
 }
 
 .nav-link {
-    padding-top: 30px ;
-    padding-bottom: 30px ;
+    padding-top: 31px ;
+    padding-bottom: 31px ;
 }
 
 .nav-link:hover,
