@@ -23,7 +23,7 @@
         </div>
 
          <div class="ag-courses_item">
-          <a href="#" class="ag-courses-item_link">
+          <a href="https://github.com/gianynx" class="ag-courses-item_link">
             <div class="ag-courses-item_bg"></div>
 
             <div class="ag-courses-item_title">
@@ -46,13 +46,13 @@
 
             <div class="ag-courses-item_title">
               Alessio Logozzo
-              <br><h4>Laravel, Vue Home & Category</h4>
+              <br><h4>Laravel, Database, Seeders & Models</h4>
             </div>
 
             <div class="ag-courses-item_date-box">
               Role:
               <span class="ag-courses-item_date">
-                Team Leader
+                Backend Dev.
               </span>
             </div>
           </a>
